@@ -13,7 +13,7 @@ const validateFormData = (req, res, next) => {
     }
 
     // Validate Email
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!email || !emailRegex.test(email)) {
         return res.status(400).json({ error: "Invalid email address" });
     }
@@ -26,8 +26,8 @@ const validateFormData = (req, res, next) => {
         });
     }
 
-    // Validate Phone Number
-    const phoneRegex = /^[0-9]{10,15}$/;
+    // Validate Phone Number (Optional International Phone Validation)
+    const phoneRegex = /^[+]?[0-9]{10,15}$/; // Allows optional leading + and validates between 10 and 15 digits
     if (!phone || !phoneRegex.test(phone)) {
         return res.status(400).json({ error: "Invalid phone number. It should be between 10 and 15 digits." });
     }

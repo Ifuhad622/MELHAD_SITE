@@ -9,7 +9,6 @@ const moreButton = document.querySelector("#more-button");
 const moreContent = document.querySelector("#more-content");
 const successMessage = document.getElementById("success-message");
 const contactForm = document.getElementById("contact-form");
-const loadingIndicator = document.getElementById("loading-indicator"); // Add loading indicator
 
 // Utility function to show/hide messages
 const showMessage = (message, type = "success") => {
@@ -85,16 +84,18 @@ if (contactForm) {
     const submitButton = e.target.querySelector("button");
     submitButton.disabled = true;
 
-    // Show loading indicator
-    loadingIndicator.style.display = "block";
-
     // Collect form data
     const formData = new FormData(this);
+    
+    // Get CSRF token from the form (make sure it's included as a hidden input in the form)
+    const csrfToken = document.querySelector('input[name="_csrf"]').value;
+
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
       message: formData.get("message"),
+      _csrf: csrfToken // Include CSRF token in the data
     };
 
     try {
@@ -125,9 +126,6 @@ if (contactForm) {
     } finally {
       // Re-enable the submit button after the request is complete
       submitButton.disabled = false;
-
-      // Hide loading indicator
-      loadingIndicator.style.display = "none";
     }
   });
 }
@@ -141,7 +139,6 @@ if (moreButton) {
       : "Show More";
   });
 }
-
 
 (function ($) {
   "use strict";
@@ -163,20 +160,21 @@ if (moreButton) {
       $(window).resize(toggleNavbarMethod);
   });
   
-  
   // Back to top button
-  $(window).scroll(function () {
+  if ($('.back-to-top').length) {
+    $(window).scroll(function () {
       if ($(this).scrollTop() > 100) {
-          $('.back-to-top').fadeIn('slow');
+        $('.back-to-top').fadeIn('slow');
       } else {
-          $('.back-to-top').fadeOut('slow');
+        $('.back-to-top').fadeOut('slow');
       }
-  });
-  $('.back-to-top').click(function () {
+    });
+
+    $('.back-to-top').click(function () {
       $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
       return false;
-  });
-
+    });
+  }
 
   // Facts counter
   $('[data-toggle="counter-up"]').counterUp({
@@ -184,24 +182,21 @@ if (moreButton) {
       time: 2000
   });
 
-
   // Modal Video
   $(document).ready(function () {
       var $videoSrc;
       $('.btn-play').click(function () {
           $videoSrc = $(this).data("src");
       });
-      console.log($videoSrc);
 
-      $('#videoModal').on('shown.bs.modal', function (e) {
+      $('#videoModal').on('shown.bs.modal', function () {
           $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-      })
+      });
 
-      $('#videoModal').on('hide.bs.modal', function (e) {
+      $('#videoModal').on('hide.bs.modal', function () {
           $("#video").attr('src', $videoSrc);
-      })
+      });
   });
-
 
   // Testimonials carousel
   $(".testimonial-carousel").owlCarousel({
@@ -212,20 +207,19 @@ if (moreButton) {
       dots: true,
       loop: true,
       responsive: {
-          0:{
-              items:1
+          0: {
+              items: 1
           },
-          576:{
-              items:1
+          576: {
+              items: 1
           },
-          768:{
-              items:2
+          768: {
+              items: 2
           },
-          992:{
-              items:3
+          992: {
+              items: 3
           }
       }
   });
   
 })(jQuery);
-

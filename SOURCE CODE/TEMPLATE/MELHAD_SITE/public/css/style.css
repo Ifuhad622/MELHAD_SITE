@@ -947,6 +947,12 @@ pre strong {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+form {
+  width: 100%;
+  max-width: 500px; /* Adjust as needed */
+}
+
+
 .order .order-content .order-form input::-webkit-input-placeholder,
 .order .order-content .order-form textarea::-webkit-input-placeholder {
   text-transform: capitalize;
@@ -6234,19 +6240,20 @@ p,
   animation: fadeInDown 1s ease-in-out;
 }
 
+/* Add spacing between testimonial cards */
+
 .testimonial-card {
-  background: #fff;
+  background: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 80px;
   text-align: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  height: 100%; /* Make cards equal height */
-  display: flex;
+  height: 150%; /* Make cards equal height */
   flex-direction: column;
   justify-content: space-between;
-  border-style: ridge;
-  line-height: 1.5;
+  border-style: initial;
+  line-height: 1.2;
 }
 
 .testimonial-card:hover {
@@ -6254,8 +6261,8 @@ p,
 }
 
 .testimonial-card img {
-  width: 80px;
-  height: 80px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 3px solid #007bff;
   text-align: center;
@@ -6264,15 +6271,16 @@ p,
 /* Ensure text wraps and does not overflow */
 .testimonial-text {
   font-size: 16px;
+  text-align: initial;
   color: black;
   word-wrap: break-word;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 120px; /* Adjust to limit text */
+  overflow: none;
+  text-overflow: auto;
+  max-height: none; /* Adjust to limit text */
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 5; /* Limits to 5 lines */
-  -webkit-box-orient: vertical;
+  -webkit-line-clamp: none; /* Remove line restriction */
+  -webkit-box-orient: none;
 }
 
 /* Quote Icon */
@@ -6282,16 +6290,7 @@ p,
   right: 10px;
 }
 
-/* Add spacing between testimonial cards */
-.testimonial-card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  margin: 15px; /* Adds spacing between cards */
-}
+
 
 .testimonial-card:hover {
   transform: scale(1.05);
@@ -6313,8 +6312,10 @@ p,
 
 /* Style the name (h5) */
 .testimonial-card h5 {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 150;
+  text-decoration: wavy;
+  text-align: left;
   color: hsl(0, 98%, 39%);
   margin-bottom: 5px; /* Adds spacing below name */
 }
@@ -6326,25 +6327,14 @@ p,
 
 /* Style the name (h6) */
 .testimonial-card h6 {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: bold;
-  color: #000000;
+  color: #190cd3;
   margin-bottom: 5px; /* Adds spacing below name */
 }
 
-/* Style the small tag (C.E.O) */
-.testimonial-card small {
-  color: #007bff;
-  font-weight: bold;
-}
 
-/* Style the company name separately */
-.testimonial-card .company-name {
-  font-size: 18px;
-  font-weight: bold;
-  color: #ff6600;
-  text-transform: uppercase;
-}
+
 
 /* Ensure equal spacing in the slider */
 .owl-carousel .owl-stage-outer {
@@ -6353,12 +6343,13 @@ p,
 
 /* Ensure the testimonial image is perfectly circular */
 .testimonial-card img {
-  width: 70px; /* Adjust size as needed */
-  height: 70px; /* Ensure width and height are equal */
-  border-radius: 50%; /* Makes it a perfect circle */
-  object-fit: cover; /* Ensures the image fills the circle without distortion */
-  border: 3px solid #007bff; /* Optional: Adds a border around the image */
-}
+  width: 80px;
+  /*Adjustsizeasneeded*/height: 100px;
+  /*Ensurewidthandheightareequal*/border-radius: 50%;
+  /*Makesitaperfectcircle*/object-fit: cover;
+  /*Ensurestheimagefillsthecirclewithoutdistortion*/border: 3px solid #007bff;
+
+
 
 /* General Styles */
 .content-wrapper {
@@ -6415,3 +6406,11 @@ p,
   }
 }
 
+.confirmation-message {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  margin: 50px auto;
+}

@@ -2,7 +2,7 @@
 <html lang="en">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="We offer quality  Printing." />
     <meta name="keywords" content=" Graphics Design, Screen Printing, Large Format Printing, Offset Printing, Engraving, Embroidery" />
 
@@ -31,7 +31,13 @@
     <!-- ----boxicons link---- -->
     <link rel="stylesheet"
   href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-  
+  <!-- Load jQuery from CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Add OwlCarousel CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     </head>
   <body>
 
@@ -43,7 +49,7 @@
       <div class="header-logo">
         <img src="./images/logo-img.png" alt="logo" />
       </div>
-<div><h4>Your home of printing</h4></div>
+<div><h5>Welcome To Your home of printing</h5></div>
 <!-- ---navigation--- -->
       <nav class="navbar">
         <ul>
@@ -272,8 +278,9 @@
         </div>
       </div>
     </section>
- <!-- Testimonial Start -->
-<div class="container-fluid py-5">
+
+   <!-- Testimonial Start -->
+ <div class="container-fluid py-5">
   <div class="container">
     <div class="text-center pb-4">
       <h1 class="text-uppercase font-weight-bold testimonial-title">Testimonial</h1>
@@ -292,7 +299,7 @@
             </div>
           </div>
           <p class="testimonial-text">
-            Dabor's Twin Fashion World a clothing brand have being working with MelHad Investment over a year now, the customer service is outstanding, always do an excellent job with an authentic product, very professional & always meet deadline. There printing services help greatly in increasing value to our brand. We are grateful for all your hard work.
+            <b>Dabor's Twin Fashion World</b> a clothing brand have being working with MelHad Investment</b> over a year now, the customer service is outstanding, always do an excellent job with an authentic product, very professional & always meet deadline. There printing services help greatly in increasing value to our brand. We are grateful for all your hard work.
           </p>
         </div>
       </div>
@@ -308,7 +315,7 @@
             </div>
           </div>
           <p class="testimonial-text">
-            ORANGE SL LTD Southern Region is very appreciative of the work done by MelHad Investment over the years ever since we came in contact.Meeting deadlines and the quality of work is one of the qualities
+            <b>ORANGE SL LTD Southern Region</b> is very appreciative of the work done by MelHad Investment over the years ever since we came in contact.Meeting deadlines and the quality of work is one of the qualities
                  that has caused them to stand out among the lots.We are very pleased with the quality and professionalism of 
                  their work and services. Our printing has always been completed on schedule. Great business!Doing business
                   with MelHad Investment is by no chance a mistake.
@@ -327,7 +334,7 @@
             </div>
           </div>
           <p class="testimonial-text">
-            The Regional Rice Value Chain Project (RRVCP) in the Ministry of Agriculture and Food Security is excited about the printing Services the company has been providing over the past 3 years, we considered their design and printing materials to be top notch and that of high quality. There printing has helped increase on our project visibility across the country...
+            <b>The Regional Rice Value Chain Project (RRVCP) in the Ministry of Agriculture and Food Security</b> is excited about the printing Services the company has been providing over the past 3 years, we considered their design and printing materials to be top notch and that of high quality. There printing has helped increase on our project visibility across the country.
           </p>
         </div>
       </div>
@@ -337,31 +344,27 @@
 <!-- Testimonial End -->
 
 
- <section>
-        <section id="order" class="order">
-          <h2>contact <span>us</span></h2>
-        
-          <div class="order-content">
-            <!-- The main form -->
-            <form id="orderForm" class="order-form" action="http://localhost:5000/api/forms/submit" method="POST" autocomplete="off">
+
+<section>
+  <section id="order" class="order">
+      <h2>Contact <span>Us</span></h2>
+  <div class="order-content">
+          <!-- The main form -->
+          <form id="orderForm" class="order-form" action="http://localhost:5000/api/forms/submit" method="POST" autocomplete="off">
+              <!-- CSRF Token -->
+              <input type="hidden" name="_csrf" value="{{csrfToken}}"> <!-- Insert CSRF token here -->
+
               <input type="text" name="name" placeholder="Name" required />
               <input type="text" name="address" placeholder="Address" required />
               <input type="email" name="email" placeholder="Email" required />
               <textarea name="message" cols="30" rows="8" placeholder="Leave a message" required></textarea>
               <button type="submit">Submit</button>
-            </form>
-            <img src="./images/photo frame.jpg" alt="Net Error" />
-          </div>
-        </section>
-        
-        </div>
-      </section>
-
-      
-           
-      <div id="loading-indicator" style="display: none;">
-        Submitting your message, please wait...
+          </form>
+          <img src="./images/photo frame.jpg" alt="Net Error" />
       </div>
+  </section>
+</section>
+
 
       <!-- Success message container -->
       <div id="success-message" style="display: none; color: rgb(115, 2, 138); font-weight: bold;">
@@ -430,6 +433,7 @@
   <!--End of Tawk.to Script-->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./public/js/main.js"></script>
+    
     <script>
       $(document).ready(function(){
         $(".testimonial-carousel").owlCarousel({
@@ -449,7 +453,11 @@
         });
       });
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <!-- jQuery (minified) -->
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </body>
 </html>

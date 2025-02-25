@@ -521,6 +521,7 @@ pre strong {
   background-repeat: no-repeat;
   background-position: center;
   background-mix-blend-mode: screen;
+  background-color: ;
 }
 
 .about .about-image img {
