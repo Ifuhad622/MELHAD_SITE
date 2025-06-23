@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5; url=http://localhost:5000"> <!-- Redirect after 5 seconds -->
+    <title>Thank You</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="thank-you-container">
+        <h1>Thank You for Your Message!</h1>
+        <p>Your message has been successfully submitted. We will get back to you soon.</p>
+        <p>You will be redirected to the home page in 5 seconds.</p>
+    </div>
+
+    <!-- Manual redirect option -->
+    <p style="text-align: center;">
+        If you are not redirected automatically, <a href="http://localhost:5000">click here</a>.
+    </p>
+
+    <script>
+        // Redirect to the specified URL after 5 seconds
+        setTimeout(function() {
+            window.location.href = "http://localhost:5000"; 
+        }, 5000);
+    </script>
+    
+</body>
+</html>

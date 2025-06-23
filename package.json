@@ -1,0 +1,19 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "sass": "^1.57.0",  
+    "axios": "^1.5.0"   
+  },
+  "scripts": {
+    "start": "npm run watch", 
+    "build": "npm run compile-sass", 
+    "watch": "sass --watch scss:css", 
+    "compile-sass": "sass scss:css" 
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0" 
+  },
+  "proxy": "http://localhost:5000" 
+}
